@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/scroll.css">
+    <link rel="stylesheet" href="../css/loader.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBcAoe0T87cBql-ncNZGs1f8u4ngBQ9xpc",
+        authDomain: "boker-64a40.firebaseapp.com",
+        databaseURL: "https://boker-64a40.firebaseio.com",
+        projectId: "boker-64a40",
+        storageBucket: "boker-64a40.appspot.com",
+        messagingSenderId: "125438038670",
+        appId: "1:125438038670:web:7c63c86ba7f0ef0d656fdf"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="logo">
+        <a href="index.html">
+            <img src="../bilder/logo.png" alt="">
+            <h1>Books</h1>
+        </a>
+    </div>
+    <header>
+        <a href="index.html">Hjem</a>
+        <a class="active" href="boker.html">Bøker</a>
+        <a href="forfattere.html">Forfattere</a>
+        <a href="registrer.html">Legg til bok/forfatter</a>
+    </header>
+    <main>
+        <section class="searchbox">
+            <input id="searchTypeBoker" type="text" placeholder="Søk etter bok">
+            <select id="selTypeBoker">
+                <option value="alfabetisk">Sorter alfabetisk</option>
+                <option value="bokNy">Sorter etter nyest bok</option>
+                <option value="bokGammel">Sorter etter gamlest bok</option>
+            </select>
+        </section>
+        <section id="loading">
+            <div class="loader">Loading...</div>
+        </section>
+        <section id="displayDB" class="displayDB">
+
+        </section>
+    </main>
+    <footer></footer>
+    <script src="../js/boker.js"></script>
+</body>
+</html>

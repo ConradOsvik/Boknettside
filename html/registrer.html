@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/registrer.css">
+    <link rel="stylesheet" href="../css/scroll.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBcAoe0T87cBql-ncNZGs1f8u4ngBQ9xpc",
+        authDomain: "boker-64a40.firebaseapp.com",
+        databaseURL: "https://boker-64a40.firebaseio.com",
+        projectId: "boker-64a40",
+        storageBucket: "boker-64a40.appspot.com",
+        messagingSenderId: "125438038670",
+        appId: "1:125438038670:web:7c63c86ba7f0ef0d656fdf"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="logo">
+        <a href="index.html">
+            <img src="../bilder/logo.png" alt="">
+            <h1>Books</h1>
+        </a>
+    </div>
+    <header>
+        <a href="index.html">Hjem</a>
+        <a href="boker.html">Bøker</a>
+        <a href="forfattere.html">Forfattere</a>
+        <a class="active" href="registrer.html">Legg til bok/forfatter</a>
+    </header>
+    <main>
+        <section class="registrerbox">
+            <h1>Registrer en bok</h1>
+            <form id="registrerBok">
+                <input id="bokNavn" type="text" placeholder="Navn">
+                <input id="bokUtgivelsesar" type="text" placeholder="Utgivelsesår">
+                <input id="bokForfatter" type="text" placeholder="Forfatter">
+                <input id="bokBilde" type="text" placeholder="Bilde-URL">
+                <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
+                <button onclick="sendBok(event)">Registrer bok</button>
+            </form>
+        </section>
+        <section class="registrerbox">
+            <h1>Registrer en forfatter</h1>
+            <form id="registrerForfatter">
+                <input id="forfatterNavn" type="text" placeholder="Navn">
+                <input id="forfatterAlder" type="text" placeholder="Alder">
+                <input id="forfatterAntBok" type="text" placeholder="Antall bøker">
+                <input id="forfatterBilde" type="text" placeholder="Bilde-URL">
+                <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
+                <button onclick="sendForfatter(event)">Registrer forfatter</button>
+            </form>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="../js/register.js"></script>
+</body>
+</html>
