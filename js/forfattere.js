@@ -59,3 +59,24 @@ var lagHTMLForfattere = (id, info) => {
         </a>
     `;
 }
+
+var url = new URL(window.location.href);
+var id = url.searchParams.get("id");
+
+var visForfatter = async (id) => {
+    var svar = await forfatterColl.doc(id).get();
+    lagHTML(svar.data());
+}
+
+var lagHTML = (info) => {
+    displayDB.innerHTML += `
+            <section class="content-underside">
+                <h1>${info.navn}</h1>
+                <img src=${info.bilde} alt="Bilde av ${info.navn}">
+                <p>Alder: ${info["alder"]}</p>
+                <p>Antall bøker: ${info["antallboker"]}</p>
+            </section>
+        `;
+}
+
+visForfatter(id);

@@ -59,3 +59,24 @@ var lagHTMLBoker = (id, info) => {
         </a>
     `;
 }
+
+var url = new URL(window.location.href);
+var id = url.searchParams.get("id");
+
+var visBok = async (id) => {
+    var svar = await bokColl.doc(id).get();
+    lagHTML(svar.data());
+}
+
+var lagHTML = (info) => {
+    displayDB.innerHTML += `
+            <section class="content-underside">
+                <h1>${info.navn}</h1>
+                <img src=${info.bilde} alt="Bilde av ${info.navn}">
+                <p>Forfatter: ${info["forfatter"]}</p>
+                <p>Utgivelsesår: ${info["ua"]}</p>
+            </section>
+        `;
+}
+
+visBok(id);

@@ -42,6 +42,7 @@ header{
 header a{
     text-decoration: none;
     color: white;
+    font-weight: 300;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
     transition: 500ms;
@@ -92,4 +93,29 @@ header a:hover{
 .displaycontent p{
     font-weight: 300;
     font-size: 1.25vw;
+}
+.content-underside{
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content-underside h1{
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    text-transform: capitalize;
+}
+.content-underside img{
+    width: 30vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    border: 0.2vw solid black;
+}
+.content-underside p{
+    font-weight: 300;
+    font-size: 2vw;
+    text-transform: capitalize;
 }
