@@ -31,34 +31,36 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="logo">
-        <a href="index.html">
-            <img src="../bilder/logo.png" alt="">
-            <h1>Books</h1>
-        </a>
-    </div>
-    <header>
-        <a href="index.html">Hjem</a>
-        <a href="boker.html">Bøker</a>
-        <a class="active" href="forfattere.html">Forfattere</a>
-        <a href="registrer.html">Legg til bok/forfatter</a>
-    </header>
-    <main>
-        <section class="searchbox">
-            <input id="searchTypeForfattere" type="text" placeholder="Søk etter forfatter">
-            <select id="selTypeForfattere">
-                <option value="alfabetisk">Sorter alfabetisk</option>
-                <option value="forfatterNy">Sorter etter yngst forfatter</option>
-                <option value="forfatterGammel">Sorter etter eldst forfatter</option>
-            </select>
-        </section>
-        <section id="loading">
-            <div class="loader">Loading...</div>
-        </section>
-        <section id="displayDB" class="displayDB">
+    <div class="content-wrapper">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../bilder/logo.png" alt="">
+                <h1>Books</h1>
+            </a>
+        </div>
+        <header>
+            <a href="index.html">Hjem</a>
+            <a href="boker.html">Bøker</a>
+            <a class="active" href="forfattere.html">Forfattere</a>
+            <a href="registrer.html">Legg til bok/forfatter</a>
+        </header>
+        <main>
+            <section class="searchbox">
+                <input id="searchTypeForfattere" type="text" placeholder="Søk etter forfatter">
+                <select id="selTypeForfattere">
+                    <option value="alfabetisk">Sorter alfabetisk</option>
+                    <option value="forfatterNy">Sorter etter yngst forfatter</option>
+                    <option value="forfatterGammel">Sorter etter eldst forfatter</option>
+                </select>
+            </section>
+            <section id="loading">
+                <div class="loader">Loading...</div>
+            </section>
+            <section id="displayDB" class="displayDB">
 
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
     <footer></footer>
     <script src="../js/forfattere.js"></script>
 </body>

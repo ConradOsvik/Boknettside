@@ -57,6 +57,9 @@ header a:hover{
     transition: 500ms;
 }
 
+.content-wrapper{
+    min-height: 100vh;
+}
 /*Felles for boker og forfattere*/
 .searchbox{
     margin: 1vw auto auto auto;
@@ -70,7 +73,7 @@ header a:hover{
     padding: 0.2vw;
 }
 .displayDB{
-    margin: 1vw auto auto auto;
+    margin: 1vw auto 1vw auto;
     width: 47vw;
     display: grid;
     grid-template-columns: repeat(3,15vw);
@@ -118,4 +121,21 @@ header a:hover{
     font-weight: 300;
     font-size: 2vw;
     text-transform: capitalize;
+}
+.content-underside-beskrivelse h1{
+    text-transform: none;
+}
+.content-underside-beskrivelse p{
+    text-transform: none;
+    font-size: 1.5vw;
+}
+.content-underside-beskrivelse p::first-letter{
+    text-transform: capitalize;
+}
+
+footer{
+    position: relative;
+    height: 5vw;
+    width: 100%;
+    background-color: black;
 }

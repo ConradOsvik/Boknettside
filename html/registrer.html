@@ -31,42 +31,62 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="logo">
-        <a href="index.html">
-            <img src="../bilder/logo.png" alt="">
-            <h1>Books</h1>
-        </a>
+    <div class="content-wrapper">
+        <div class="logo">
+            <a href="index.html">
+                <img src="../bilder/logo.png" alt="">
+                <h1>Books</h1>
+            </a>
+        </div>
+        <header>
+            <a href="index.html">Hjem</a>
+            <a href="boker.html">Bøker</a>
+            <a href="forfattere.html">Forfattere</a>
+            <a class="active" href="registrer.html">Legg til bok/forfatter</a>
+        </header>
+        <main>
+            <section class="registrerbox">
+                <h1>Registrer en bok</h1>
+                <form id="registrerBok">
+                    <input id="bokNavn" type="text" placeholder="Navn">
+                    <input id="bokUtgivelsesar" type="text" placeholder="Utgivelsesår">
+                    <input id="bokForfatter" type="text" placeholder="Forfatter">
+                    <input id="bokBeskrivelse" type="text" placeholder="Beskrivelse av boken">
+                    <input id="bokBilde" type="text" placeholder="Bilde-URL">
+                    <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
+                    <button onclick="sendBok(event)">Registrer bok</button>
+                </form>
+            </section>
+            <section class="registrerbox">
+                <h1>Registrer en forfatter</h1>
+                <form id="registrerForfatter">
+                    <input id="forfatterNavn" type="text" placeholder="Navn">
+                    <input id="forfatterAlder" type="text" placeholder="Alder">
+                    <input id="forfatterAntBok" type="text" placeholder="Antall bøker">
+                    <input id="forfatterBeskrivelse" type="text" placeholder="Beskrivelse av forfatteren">
+                    <input id="forfatterBilde" type="text" placeholder="Bilde-URL">
+                    <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
+                    <button onclick="sendForfatter(event)">Registrer forfatter</button>
+                </form>
+            </section>
+            <section class="deletebox-wrapper">
+                <section class="deletebox">
+                    <h1>Slett en bok</h1>
+                    <form id="slettBok">
+                        <input id="slettBokNavn" type="text" placeholder="Skriv inn navn">
+                        <button onclick="slettBok(event)">Slett</button>
+                    </form>
+                </section>
+                <section class="deletebox">
+                    <h1>slett en forfatter</h1>
+                    <form id="slettForfatter">
+                        <input id="slettForfatterNavn" type="text" placeholder="Skriv inn navn">
+                        <button onclick="slettForfatter(event)">Slett</button>
+                    </form>
+                </section>
+            </section>
+        </main>
     </div>
-    <header>
-        <a href="index.html">Hjem</a>
-        <a href="boker.html">Bøker</a>
-        <a href="forfattere.html">Forfattere</a>
-        <a class="active" href="registrer.html">Legg til bok/forfatter</a>
-    </header>
-    <main>
-        <section class="registrerbox">
-            <h1>Registrer en bok</h1>
-            <form id="registrerBok">
-                <input id="bokNavn" type="text" placeholder="Navn">
-                <input id="bokUtgivelsesar" type="text" placeholder="Utgivelsesår">
-                <input id="bokForfatter" type="text" placeholder="Forfatter">
-                <input id="bokBilde" type="text" placeholder="Bilde-URL">
-                <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
-                <button onclick="sendBok(event)">Registrer bok</button>
-            </form>
-        </section>
-        <section class="registrerbox">
-            <h1>Registrer en forfatter</h1>
-            <form id="registrerForfatter">
-                <input id="forfatterNavn" type="text" placeholder="Navn">
-                <input id="forfatterAlder" type="text" placeholder="Alder">
-                <input id="forfatterAntBok" type="text" placeholder="Antall bøker">
-                <input id="forfatterBilde" type="text" placeholder="Bilde-URL">
-                <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
-                <button onclick="sendForfatter(event)">Registrer forfatter</button>
-            </form>
-        </section>
-    </main>
     <footer></footer>
     <script src="../js/register.js"></script>
 </body>

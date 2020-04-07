@@ -75,6 +75,10 @@ var lagHTML = (info) => {
                 <img src=${info.bilde} alt="Bilde av ${info.navn}">
                 <p>Forfatter: ${info["forfatter"]}</p>
                 <p>Utgivelsesår: ${info["ua"]}</p>
+                <section class="content-underside-beskrivelse">
+                <h1>Beskrivelse av boken</h1>
+                <p>${info["beskrivelse"]}</p>
+                </section>
             </section>
         `;
 }

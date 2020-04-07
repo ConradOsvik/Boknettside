@@ -1,6 +1,6 @@
 .registrerbox{
     width: 28vw;
-    margin: 2vw auto auto auto;
+    margin: 1vw auto 1vw auto;
     border: 0.1vw solid black;
     padding: 1vw;
     display: flex;
@@ -27,12 +27,11 @@
 .registrerbox button{
     margin-top: 0.1vw;
     margin-bottom: 0.1vw;
-    width: 20vw;
+    width: 20.2vw;
     height: 2vw;
     background-color: #FFD673;
     border: 0.1vw dashed black;
     text-transform: uppercase;
-    font-weight: 100;
     cursor: pointer;
 }
 .registrerbox button:hover{
@@ -43,4 +42,49 @@
     font-weight: 300;
     font-size: 0.7vw;
     color: grey;
+}
+.deletebox-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.deletebox{
+    width: 14.5vw;
+    border: 0.1vw solid black;
+    margin: 0vw 0.5vw 1vw 0.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.deletebox h1{
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    font-weight: 400;
+}
+.deletebox form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.deletebox input{
+    margin-top: 0.1vw;
+    margin-bottom: 0.1vw;
+    width: 9.8vw;
+    height: 1.6vw;
+    border: 0.1vw solid black;
+    padding: 0.2vw;
+}
+.deletebox button{
+    margin-top: 0.1vw;
+    margin-bottom: 1.1vw;
+    width: 10.4vw;
+    height: 2vw;
+    background-color: #ff4b4b;
+    border: 0.1vw dashed black;
+    text-transform: uppercase;
+    font-weight: 100;
+    cursor: pointer;
+}
+.deletebox button:hover{
+    background: rgb(255,128,128);
+    background: radial-gradient(circle, rgba(255,128,128,1) 0%, rgba(255,75,75,1) 100%);
 }
