@@ -30,7 +30,7 @@ var sendForfatter = (event) => {
     var docRef = forfatterColl.doc(fnLowercase);
     docRef.get().then(function(doc){
         if(forfatterNavn.value === '' || forfatterAlder.value === '' || forfatterAntBok.value === '' || forfatterBilde.value ==='' || forfatterBeskrivelse.value === ''){
-            alert('fyll inn alle feltene');
+            loadToast('fyll inn alle feltene');
         }
         else{
             if(doc.exists){
@@ -45,7 +45,7 @@ var sendForfatter = (event) => {
                     });
                     forfatterForm.reset();
                     console.log('forfatter oppdatert');
-                    alert('forfatter oppdatert');
+                    loadToast('forfatter oppdatert');
                 } 
                 else {
                     forfatterForm.reset();
@@ -63,7 +63,7 @@ var sendForfatter = (event) => {
                 });
                 forfatterForm.reset();
                 console.log('forfatter lagt til');
-                alert('forfatter lagt til');
+                loadToast('forfatter lagt til');
             }
         }
     });
@@ -78,7 +78,7 @@ var sendBok = (event) => {
     var docRef = bokColl.doc(bnLowercase);
     docRef.get().then(function(doc){
         if(bokNavn.value === '' || bokUtgivelsesar.value === '' || bokForfatter.value === '' || bokBilde.value === '' || bokBeskrivelse.value === ''){
-            alert('fyll inn alle feltene');
+            loadToast('fyll inn alle feltene');
         }
         else{
             if(doc.exists){
@@ -93,7 +93,7 @@ var sendBok = (event) => {
                     });
                     bokForm.reset();
                     console.log('bok oppdatert');
-                    alert('bok oppdatert');
+                    loadToast('bok oppdatert');
                 } 
                 else {
                     bokForm.reset();
@@ -111,7 +111,7 @@ var sendBok = (event) => {
                 });
                 bokForm.reset();
                 console.log('bok lagt til');
-                alert('bok lagt til');
+                loadToast('bok lagt til');
             }
         }
     });
@@ -122,7 +122,7 @@ var slettBok = (event) => {
     if (confirm("Er du sikker?")) {
         bokColl.doc(slettBokNavn.value).delete();
         slettBokForm.reset();
-        alert('Bok slettet');
+        loadToast('Bok slettet');
     } 
     else {
         slettBokForm.reset();
@@ -134,7 +134,7 @@ var slettForfatter = (event) => {
     if (confirm("Er du sikker?")) {
         forfatterColl.doc(slettForfatterNavn.value).delete();
         slettForfatterForm.reset();
-        alert('Forfatter slettet');
+        loadToast('Forfatter slettet');
     } 
     else {
         slettForfatterForm.reset();
