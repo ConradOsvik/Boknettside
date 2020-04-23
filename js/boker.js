@@ -52,7 +52,7 @@ var skrivResultatBoker = (snapshot) => {
 var lagHTMLBoker = (id, info) => {
     displayDB.innerHTML += `
         <a href="boker.html?id=${id}" class="displaycontent">
-        <img src="${info["bilde"]}" alt="">
+        <img src="${info["bilde"]}" alt="Bilde av ${info.navn}">
         <h1>${info["navn"]}</h1>
         <p>Forfatter: ${info["forfatter"]}</p>
         <p>Utgivelsesår: ${info["ua"]}</p>

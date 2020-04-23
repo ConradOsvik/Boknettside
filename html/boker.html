@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bokogforfatter.css">
     <link rel="stylesheet" href="../css/scroll.css">
     <link rel="stylesheet" href="../css/loader.css">
+    <link rel="stylesheet" href="../css/toast.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -33,10 +37,17 @@
 <body>
     <div class="content-wrapper">
         <div class="logo">
-            <a href="index.html">
-                <img src="../bilder/logo.png" alt="">
-                <h1>Books</h1>
-            </a>
+            <div class="left-side"></div>
+            <div class="middle">
+                <a href="index.html">
+                    <img src="../bilder/logo.png" alt="">
+                    <h1>Books</h1>
+                </a>
+            </div>
+            <div class="right-side">
+                <button id="btnLogout" class="login-button hide">Log out</button>
+                <button id="loginBoxBtn" class="login-button">Log in/Sign up</button>
+            </div>
         </div>
         <header>
             <a href="index.html">Hjem</a>
@@ -45,6 +56,22 @@
             <a href="registrer.html">Legg til bok/forfatter</a>
         </header>
         <main>
+            <section id="loginBoxWrapper" class="login-wrapper">
+                <div class="login-content-container">
+                    <div class="login-content">
+                        <i id="loginBoxBtnClose" class="material-icons" style="font-size: 1.5vw;color:black;">close</i>
+                        <h1>Log in/Sign up</h1>
+                        <div class="login-input-container">
+                            <input id="txtEmail" class="input-primary" type="email" placeholder="Email">
+                            <input id="txtPassword" class="input-primary" type="password" placeholder="password">
+                        </div>
+                        <div class="login-btn-container">
+                            <button id="btnLogin" class="btn-primary">Log in</button>
+                            <button id="btnSignUp" class="btn-secondary">Sign up</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="searchbox">
                 <input id="searchTypeBoker" type="text" placeholder="Søk etter bok">
                 <select id="selTypeBoker">
@@ -59,9 +86,12 @@
             <section id="displayDB" class="displayDB">
 
             </section>
+            <section id="toast"></section>
         </main>
     </div>
     <footer></footer>
     <script src="../js/boker.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/toast.js"></script>
 </body>
 </html>

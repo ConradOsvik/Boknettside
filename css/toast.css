@@ -5,7 +5,7 @@
     color: white;
     font-weight: 300;
     position: fixed;
-    z-index: 10;
+    z-index: 1000;
     top: 5vw;
     left: 50vw;
     transform: translate(-50%,-50%);

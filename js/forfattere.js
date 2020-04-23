@@ -52,7 +52,7 @@ var skrivResultatForfattere = (snapshot) => {
 var lagHTMLForfattere = (id, info) => {
     displayDB.innerHTML += `
         <a href="forfattere.html?id=${id}" class="displaycontent">
-        <img src="${info["bilde"]}" alt="">
+        <img src="${info["bilde"]}" alt="Bilde av ${info.navn}">
         <h1>${info["navn"]}</h1>
         <p>Alder: ${info["alder"]}</p>
         <p>Antall bøker: ${info["antallboker"]}</p>
