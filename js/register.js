@@ -126,6 +126,7 @@ var slettBok = (event) => {
     } 
     else {
         slettBokForm.reset();
+        loadToast('Kanselert');
     }
 }
 
@@ -138,5 +139,6 @@ var slettForfatter = (event) => {
     } 
     else {
         slettForfatterForm.reset();
+        loadToast('Kanselert');
     }
 }

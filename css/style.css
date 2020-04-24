@@ -8,7 +8,8 @@ body{
 }
 button:focus {outline:0;}
 input:focus {outline:0;}
-
+i{transition: 250ms;}
+label{float: left;}
 .logo{
     width: 100%;
     height: 4vw;
@@ -34,6 +35,35 @@ input:focus {outline:0;}
 }
 .left-side{
     width: 20vw;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.profile-container{
+    margin-left: 1vw;
+    width: 19vw;
+    height: 3vw;
+    border-radius: 0.3vw;
+    background-color: black;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.profile-img-container{
+    width: 3vw;
+    height: 3vw;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.3vw;
+}
+.profile-container img{
+    display: inline;
+    margin-left: -25%;
+    object-fit: scale-down;
+    object-position: left;
+}
+.profile-container a{
+    color: white;
 }
 .middle{
     width: 60vw;
@@ -43,8 +73,12 @@ input:focus {outline:0;}
 .right-side{
     width: 20vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+}
+.login-button{
+    padding: 0.5vw 0.5vw;
+    margin: 0 0.2vw;
 }
 header{
     width: 100%;
@@ -66,11 +100,11 @@ header a{
     text-transform: uppercase;
 }
 header a:hover{
-    color: #B3B3B3;
+    color: #bdbdbd;
     transition: 500ms;
 }
 .active{
-    color: #B3B3B3;
+    color: #bdbdbd;
     transition: 500ms;
 }
 
@@ -100,15 +134,6 @@ header a:hover{
     justify-content: center;
     align-items: center;
 }
-.login-button{
-    padding: 0 0.5vw;
-    margin: 0 0.5vw;
-    height: 2vw;
-    background-color: black;
-    color: white;
-    border: 0;
-    cursor: pointer;
-}
 
 #loginBoxBtnClose{
     position: absolute;
@@ -124,6 +149,12 @@ header a:hover{
     flex-direction: column;
     align-items: center;
 }
+.email-pass-container{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
 .input-primary{
     border: none;
     background-color: white;
@@ -132,9 +163,16 @@ header a:hover{
     font-size: 1vw;
     margin: 0.5vw 0;
     width: 15vw;
+    transition: 250ms;
+}
+.input-primary:hover, .input-primary:focus{
+    border-color: #1565c0;
+}
+.input-primary:hover + label, .input-primary:focus + label{
+    color: #1565c0;
 }
 .input-primary::placeholder{
-    color: black;
+    color: #bdbdbd;
     font-weight: lighter;
     text-transform: capitalize;
 }
@@ -148,22 +186,36 @@ header a:hover{
 .login-content-container button{
     margin: 0 0.5vw;
     width: 5vw;
-    border-radius: 0.2vw;
-    border: 0;
-    cursor: pointer;
-    box-shadow: 0.2vw 0.2vw 0.4vw 0.1vw #bdbdbd ;
-    font-size: 1vw;
     padding: 0.3vw 0;
 }
 .btn-primary{
     background-color: black;
     color: white;
+    transition: 250ms;
+    border-radius: 0.2vw;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 0.2vw 0.2vw 0.4vw 0.1vw #bdbdbd ;
+    font-size: 1vw;
 }
-.login-btn-secondary{
+.btn-secondary{
     background-color: white;
     color: black;
+    transition: 250ms;
+    border-radius: 0.2vw;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 0.2vw 0.2vw 0.4vw 0.1vw #bdbdbd ;
+    font-size: 1vw;
 }
-
+.btn-primary:hover, .btn-secondary:hover{
+    background-color: #1565c0;
+    color: white;
+}
+#loginBoxBtnClose:hover{
+    background-color: #bdbdbd; 
+    border-radius: 0.2vw;
+}
 .hide{
     display: none;
 }

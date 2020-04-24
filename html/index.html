@@ -37,7 +37,14 @@
 <body>
     <div class="content-wrapper">
         <div class="logo">
-            <div class="left-side"></div>
+            <div class="left-side">
+                <div class="profile-container btn-primary">
+                    <div class="profile-img-container">
+                        <img src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg" alt="">
+                    </div>
+                    <a id="username" href="profil.html"></a>
+                </div>
+            </div>
             <div class="middle">
                 <a href="index.html">
                     <img src="../bilder/logo.png" alt="">
@@ -45,8 +52,8 @@
                 </a>
             </div>
             <div class="right-side">
-                <button id="btnLogout" class="login-button hide">Log out</button>
-                <button id="loginBoxBtn" class="login-button">Log in/Sign up</button>
+                <button id="btnLogout" class="btn-primary login-button hide">Log out</button>
+                <button id="loginBoxBtn" class="btn-primary login-button">Log in/Sign up</button>
             </div>
         </div>
         <header>
@@ -63,8 +70,18 @@
                         <i id="loginBoxBtnClose" class="material-icons" style="font-size: 1.5vw;color:black;">close</i>
                         <h1>Log in/Sign up</h1>
                         <div class="login-input-container">
-                            <input id="txtEmail" class="input-primary" type="email" placeholder="Email">
-                            <input id="txtPassword" class="input-primary" type="password" placeholder="password">
+                            <div class="email-pass-container">
+                                <input id="txtEmail" class="input-primary" type="email" placeholder="Email">
+                                <label for="txtEmail">
+                                    <i class="material-icons" style="font-size: 1.5vw;">email</i>
+                                </label>
+                            </div>
+                            <div class="email-pass-container">
+                                <input id="txtPassword" class="input-primary" type="password" placeholder="password">
+                                <label for="txtEmail">
+                                    <i class="material-icons" style="font-size: 1.5vw;">lock</i>
+                                </label>                             
+                            </div>
                         </div>
                         <div class="login-btn-container">
                             <button id="btnLogin" class="btn-primary">Log in</button>
@@ -77,7 +94,7 @@
         </main>
     </div>
     <footer></footer>
-    <script src="../js/login.js"></script>
+    <script src="../js/user.js"></script>
     <script src="../js/toast.js"></script>
 </body>
 </html>

@@ -44,8 +44,8 @@
                 </a>
             </div>
             <div class="right-side">
-                <button id="btnLogout" class="login-button hide">Log out</button>
-                <button id="loginBoxBtn" class="login-button">Log in/Sign up</button>
+                <button id="btnLogout" class="btn-primary login-button hide">Log out</button>
+                <button id="loginBoxBtn" class="btn-primary login-button">Log in/Sign up</button>
             </div>
         </div>
         <header>
@@ -74,40 +74,40 @@
             <section class="registrerbox">
                 <h1>Registrer en bok</h1>
                 <form id="registrerBok">
-                    <input id="bokNavn" type="text" placeholder="Navn">
-                    <input id="bokUtgivelsesar" type="text" placeholder="Utgivelsesår">
-                    <input id="bokForfatter" type="text" placeholder="Forfatter">
-                    <input id="bokBeskrivelse" type="text" placeholder="Beskrivelse av boken">
-                    <input id="bokBilde" type="text" placeholder="Bilde-URL">
+                    <input id="bokNavn" class="input-primary" type="text" placeholder="Navn">
+                    <input id="bokUtgivelsesar" class="input-primary" type="text" placeholder="Utgivelsesår">
+                    <input id="bokForfatter" class="input-primary" type="text" placeholder="Forfatter">
+                    <input id="bokBeskrivelse" class="input-primary" type="text" placeholder="Beskrivelse av boken">
+                    <input id="bokBilde" class="input-primary" type="text" placeholder="Bilde-URL">
                     <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
-                    <button onclick="sendBok(event)">Registrer bok</button>
+                    <button class="btn-primary" onclick="sendBok(event)">Registrer bok</button>
                 </form>
             </section>
             <section class="registrerbox">
                 <h1>Registrer en forfatter</h1>
                 <form id="registrerForfatter">
-                    <input id="forfatterNavn" type="text" placeholder="Navn">
-                    <input id="forfatterAlder" type="text" placeholder="Alder">
-                    <input id="forfatterAntBok" type="text" placeholder="Antall bøker">
-                    <input id="forfatterBeskrivelse" type="text" placeholder="Beskrivelse av forfatteren">
-                    <input id="forfatterBilde" type="text" placeholder="Bilde-URL">
+                    <input id="forfatterNavn" class="input-primary" type="text" placeholder="Navn">
+                    <input id="forfatterAlder" class="input-primary" type="text" placeholder="Alder">
+                    <input id="forfatterAntBok" class="input-primary" type="text" placeholder="Antall bøker">
+                    <input id="forfatterBeskrivelse" class="input-primary" type="text" placeholder="Beskrivelse av forfatteren">
+                    <input id="forfatterBilde" class="input-primary" type="text" placeholder="Bilde-URL">
                     <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
-                    <button onclick="sendForfatter(event)">Registrer forfatter</button>
+                    <button class="btn-primary" onclick="sendForfatter(event)">Registrer forfatter</button>
                 </form>
             </section>
             <section class="deletebox-wrapper">
                 <section class="deletebox">
                     <h1>Slett en bok</h1>
                     <form id="slettBok">
-                        <input id="slettBokNavn" type="text" placeholder="Skriv inn navn">
-                        <button onclick="slettBok(event)">Slett</button>
+                        <input class="input-primary" id="slettBokNavn" type="text" placeholder="Skriv inn navn">
+                        <button class="btn-primary" onclick="slettBok(event)">Slett</button>
                     </form>
                 </section>
                 <section class="deletebox">
                     <h1>slett en forfatter</h1>
                     <form id="slettForfatter">
-                        <input id="slettForfatterNavn" type="text" placeholder="Skriv inn navn">
-                        <button onclick="slettForfatter(event)">Slett</button>
+                        <input class="input-primary" id="slettForfatterNavn" type="text" placeholder="Skriv inn navn">
+                        <button class="btn-primary" onclick="slettForfatter(event)">Slett</button>
                     </form>
                 </section>
             </section>
@@ -116,7 +116,7 @@
     </div>
     <footer></footer>
     <script src="../js/register.js"></script>
-    <script src="../js/login.js"></script>
+    <script src="../js/user.js"></script>
     <script src="../js/toast.js"></script>
 </body>
 </html>

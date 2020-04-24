@@ -1,0 +1,49 @@
+input[type="file"] {
+    display: none;
+}
+.change-profile-container{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    margin: 2vw auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.change-profile-avatar{
+    display: block;
+    position: relative;
+    width: 10vw;
+    height: 10vw;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 250ms;
+}
+.change-profile-avatar:hover{
+    background-color: #1565c0;
+}
+.change-profile-avatar i{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.change-profile-avatar p{
+    font-size: 0.75vw;
+    color: white;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.change-displayname-container{
+    margin-top: 2vw;
+}
+.change-displayname-container button{
+    border-radius: 0.2vw;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 0.2vw 0.2vw 0.4vw 0.1vw #bdbdbd ;
+    font-size: 1vw;
+}
