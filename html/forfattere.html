@@ -62,8 +62,18 @@
                         <i id="loginBoxBtnClose" class="material-icons" style="font-size: 1.5vw;color:black;">close</i>
                         <h1>Log in/Sign up</h1>
                         <div class="login-input-container">
-                            <input id="txtEmail" class="input-primary" type="email" placeholder="Email">
-                            <input id="txtPassword" class="input-primary" type="password" placeholder="password">
+                            <div class="email-pass-container">
+                                <input id="txtEmail" class="input-primary" type="email" placeholder="Email">
+                                <label for="txtEmail">
+                                    <i class="material-icons" style="font-size: 1.5vw;">email</i>
+                                </label>
+                            </div>
+                            <div class="email-pass-container">
+                                <input id="txtPassword" class="input-primary" type="password" placeholder="password">
+                                <label for="txtEmail">
+                                    <i class="material-icons" style="font-size: 1.5vw;">lock</i>
+                                </label>                             
+                            </div>
                         </div>
                         <div class="login-btn-container">
                             <button id="btnLogin" class="btn-primary">Log in</button>
