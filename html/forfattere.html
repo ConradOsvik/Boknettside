@@ -14,6 +14,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-storage.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -37,7 +38,14 @@
 <body>
     <div class="content-wrapper">
         <div class="logo">
-            <div class="left-side"></div>
+            <div class="left-side">
+                <div class="profile-container btn-primary">
+                    <div class="profile-img-container">
+                        <img id="profileIMG" src="" alt="">
+                    </div>
+                    <a id="username" href="profil.html"></a>
+                </div>
+            </div>
             <div class="middle">
                 <a href="index.html">
                     <img src="../bilder/logo.png" alt="">

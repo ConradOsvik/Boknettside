@@ -9,6 +9,10 @@
     border: 0.1vw solid black;
     border-radius: 0.2vw;
     padding: 0.2vw;
+    transition: 250ms;
+}
+.searchbox input:hover, .searchbox select:hover,.searchbox input:focus, .searchbox select:focus{
+    border-color: #1565c0;
 }
 .displayDB{
     margin: 1vw auto 1vw auto;
@@ -23,6 +27,10 @@
     border-radius: 0.2vw;
     text-decoration: none;
     color: black;
+    transition: 250ms
+}
+.displaycontent:hover{
+    border-color: #1565c0;
 }
 .displaycontent img{
     width: 11vw;

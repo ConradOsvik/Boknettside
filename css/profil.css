@@ -37,6 +37,19 @@ input[type="file"] {
     left: 50%;
     transform: translateX(-50%);
 }
+.change-profile-container progress{
+    margin-top: 2vw;
+    -webkit-appearance: none;
+    height: 1vw;
+}
+.change-profile-container progress::-webkit-progress-bar{
+    background: white;
+    border-radius: 5vw;
+}
+.change-profile-container progress::-webkit-progress-value{
+    border-radius: 5vw;
+    background: #81c784;
+}
 .change-displayname-container{
     margin-top: 2vw;
 }
@@ -46,4 +59,5 @@ input[type="file"] {
     cursor: pointer;
     box-shadow: 0.2vw 0.2vw 0.4vw 0.1vw #bdbdbd ;
     font-size: 1vw;
+    padding: 0.3vw 0.3vw;
 }

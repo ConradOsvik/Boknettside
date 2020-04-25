@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-storage.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -36,7 +37,14 @@
 <body>
     <div class="content-wrapper">
         <div class="logo">
-            <div class="left-side"></div>
+            <div class="left-side">
+                <div class="profile-container btn-primary">
+                    <div class="profile-img-container">
+                        <img id="profileIMG" src="" alt="">
+                    </div>
+                    <a id="username" href="profil.html"></a>
+                </div>
+            </div>
             <div class="middle">
                 <a href="index.html">
                     <img src="../bilder/logo.png" alt="">
@@ -84,11 +92,11 @@
             <section class="registrerbox">
                 <h1>Registrer en bok</h1>
                 <form id="registrerBok">
-                    <input id="bokNavn" class="input-primary" type="text" placeholder="Navn">
-                    <input id="bokUtgivelsesar" class="input-primary" type="text" placeholder="Utgivelsesår">
-                    <input id="bokForfatter" class="input-primary" type="text" placeholder="Forfatter">
-                    <input id="bokBeskrivelse" class="input-primary" type="text" placeholder="Beskrivelse av boken">
-                    <input id="bokBilde" class="input-primary" type="text" placeholder="Bilde-URL">
+                    <input id="bokNavn" class="input-primary" type="text" autocomplete="off" placeholder="Navn">
+                    <input id="bokUtgivelsesar" class="input-primary" type="text" autocomplete="off" placeholder="Utgivelsesår">
+                    <input id="bokForfatter" class="input-primary" type="text" autocomplete="off" placeholder="Forfatter">
+                    <input id="bokBeskrivelse" class="input-primary" type="text" autocomplete="off" placeholder="Beskrivelse av boken">
+                    <input id="bokBilde" class="input-primary" type="text" autocomplete="off" placeholder="Bilde-URL">
                     <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
                     <button class="btn-primary" onclick="sendBok(event)">Registrer bok</button>
                 </form>
@@ -96,11 +104,11 @@
             <section class="registrerbox">
                 <h1>Registrer en forfatter</h1>
                 <form id="registrerForfatter">
-                    <input id="forfatterNavn" class="input-primary" type="text" placeholder="Navn">
-                    <input id="forfatterAlder" class="input-primary" type="text" placeholder="Alder">
-                    <input id="forfatterAntBok" class="input-primary" type="text" placeholder="Antall bøker">
-                    <input id="forfatterBeskrivelse" class="input-primary" type="text" placeholder="Beskrivelse av forfatteren">
-                    <input id="forfatterBilde" class="input-primary" type="text" placeholder="Bilde-URL">
+                    <input id="forfatterNavn" class="input-primary" type="text" autocomplete="off" placeholder="Navn">
+                    <input id="forfatterAlder" class="input-primary" type="text" autocomplete="off" placeholder="Alder">
+                    <input id="forfatterAntBok" class="input-primary" type="text" autocomplete="off" placeholder="Antall bøker">
+                    <input id="forfatterBeskrivelse" class="input-primary" type="text" autocomplete="off" placeholder="Beskrivelse av forfatteren">
+                    <input id="forfatterBilde" class="input-primary" type="text" autocomplete="off" placeholder="Bilde-URL">
                     <p>*bilde-urlen må slutte med bildetaggen (eks: jpeg, png, osv...)</p>
                     <button class="btn-primary" onclick="sendForfatter(event)">Registrer forfatter</button>
                 </form>
@@ -109,14 +117,14 @@
                 <section class="deletebox">
                     <h1>Slett en bok</h1>
                     <form id="slettBok">
-                        <input class="input-primary" id="slettBokNavn" type="text" placeholder="Skriv inn navn">
+                        <input class="input-primary" id="slettBokNavn" type="text" autocomplete="off" placeholder="Skriv inn navn">
                         <button class="btn-primary" onclick="slettBok(event)">Slett</button>
                     </form>
                 </section>
                 <section class="deletebox">
                     <h1>slett en forfatter</h1>
                     <form id="slettForfatter">
-                        <input class="input-primary" id="slettForfatterNavn" type="text" placeholder="Skriv inn navn">
+                        <input class="input-primary" id="slettForfatterNavn" type="text" autocomplete="off" placeholder="Skriv inn navn">
                         <button class="btn-primary" onclick="slettForfatter(event)">Slett</button>
                     </form>
                 </section>

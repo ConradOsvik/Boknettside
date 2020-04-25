@@ -60,7 +60,10 @@ loginBoxBtnClose.onclick = () => {
             loginBoxWrapper.style.display = 'none';
             console.log(firebaseUser);
             username.innerHTML = firebaseUser.displayName;
-            profileIMG.src = firebaseUser.photoURL;
+            firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png').getDownloadURL().then(imgURL => {
+                profileIMG.src = imgURL;
+                console.log(imgURL);
+            });
         }
         else{
             btnLogout.classList.add('hide');
@@ -69,23 +72,82 @@ loginBoxBtnClose.onclick = () => {
         }
     });
 
+    //upload img
+    var uploader = document.getElementById('uploader');
+    var fileButton = document.getElementById('avatarUpload');
+
+    //file selection
+    fileButton.addEventListener('change', e => {
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+            if(firebaseUser){
+                //get file
+                var file = e.target.files[0];
+
+                //create storage
+                var storageRef = firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png');
+
+                //Upload file
+                var task = storageRef.put(file);
+
+                //progress
+                task.on('state_changed',
+                
+                    function progress(snapshot){
+                        var percentage = (snapshot.bytesTransferred /
+                        snapshot.totalBytes) * 100;
+                        uploader.value = percentage;
+                    },
+
+                    function error(err){
+
+                    },
+
+                    function complete(){
+
+                    }
+                
+                );
+            }
+            else{
+                loadToast('User not logged in');
+            }
+        });
+    });
+
+
+
 
 }());
 
+let file = {}
+var chooseFile = (e) => {
+    file = e.target.files[0];
+
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png').put(file).then(function() {
+            loadToast('Success');
+        }).catch(error => {
+            loadToast('error')
+            console.log(error.message)
+        })
+    });
+}
+
 //update profil
 /*
-var uploadAvatar = document.getElementById('avatar-upload');
-uploadAvatar.onchange = () => {
+const uploadAvatar = document.getElementById("avatar-upload");
+uploadAvatar.addEventListener("change", handleFiles, false);
+function handleFiles() {
+    const file = this.files;
+    console.log(file);
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            user.updateProfile({
-                photoURL: uploadAvatar.files[0],
-            }).then(function() {
+            firebase.storage().ref('users/' + user.uid + '/profile.png').put(file).then(function () {
                 loadToast('Success');
-            }).catch(function(error) {
-                loadToast('error');
+            }).catch(error => {
+                loadToast('Error');
                 console.log(error.message);
-            });
+            })
         } 
         else {
             loadToast('Logg inn for å bytte profilbilde');
@@ -119,3 +181,15 @@ displaynameButton.addEventListener('click', e => {
         }
       });
 });
+
+
+/*
+user.updateProfile({
+                photoURL: fileList,
+            }).then(function() {
+                loadToast('Success');
+            }).catch(function(error) {
+                loadToast('error');
+                console.log(error.message);
+            });
+*/

@@ -8,6 +8,7 @@ body{
 }
 button:focus {outline:0;}
 input:focus {outline:0;}
+select:focus {outline:0;}
 i{transition: 250ms;}
 label{float: left;}
 .logo{
@@ -55,12 +56,12 @@ label{float: left;}
     position: relative;
     overflow: hidden;
     border-radius: 0.3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .profile-container img{
-    display: inline;
-    margin-left: -25%;
-    object-fit: scale-down;
-    object-position: left;
+    max-width: 100%;
 }
 .profile-container a{
     color: white;
@@ -183,7 +184,7 @@ header a:hover{
     align-items: center;
     margin: 0.5vw 0;
 }
-.login-content-container button{
+.login-btn-container button{
     margin: 0 0.5vw;
     width: 5vw;
     padding: 0.3vw 0;

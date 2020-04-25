@@ -13,6 +13,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-storage.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -42,7 +43,7 @@
                     <div class="profile-img-container">
                         <img id="profileIMG" src="" alt="">
                     </div>
-                    <a id="username" href=""></a>
+                    <a id="username" href="#"></a>
                 </div>
             </div>
             <div class="middle">
@@ -91,13 +92,14 @@
             </section>
             <section id="toast"></section>
             <section class="change-profile-container">
-                <div class="cahnge-avatar-container">
-                    <label for="avatar-upload" class="change-profile-avatar">
+                <div class="change-avatar-container">
+                    <label for="avatarUpload" class="change-profile-avatar">
                         <i class="material-icons" style="font-size: 7vw; color: white;">account_circle</i>
                         <p>Upload avatar</p>
                     </label>
-                    <input id="avatar-upload" type="file" accept="image/*">
+                    <input id="avatarUpload" type="file" value="upload" accept="image/png">
                 </div>
+                <progress value="0" max="100" id="uploader">0%</progress>
                 <div class="change-displayname-container">
                     <input id="displaynameInput" class="input-primary" type="text" placeholder="Displayname">
                     <button id="displaynameButton" class="btn-primary">Update</button>
