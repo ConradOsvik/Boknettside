@@ -64,6 +64,8 @@ loginBoxBtnClose.onclick = () => {
                 profileIMG.src = imgURL;
                 console.log(imgURL);
             });
+            var displayEmail = document.getElementById('displayEmail');
+            displayEmail.innerHTML = 'Din Email: ' + firebaseUser.email
         }
         else{
             btnLogout.classList.add('hide');
@@ -72,89 +74,11 @@ loginBoxBtnClose.onclick = () => {
         }
     });
 
-    //upload img
-    var uploader = document.getElementById('uploader');
-    var fileButton = document.getElementById('avatarUpload');
-
-    //file selection
-    fileButton.addEventListener('change', e => {
-        firebase.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser){
-                //get file
-                var file = e.target.files[0];
-
-                //create storage
-                var storageRef = firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png');
-
-                //Upload file
-                var task = storageRef.put(file);
-
-                //progress
-                task.on('state_changed',
-                
-                    function progress(snapshot){
-                        var percentage = (snapshot.bytesTransferred /
-                        snapshot.totalBytes) * 100;
-                        uploader.value = percentage;
-                    },
-
-                    function error(err){
-
-                    },
-
-                    function complete(){
-
-                    }
-                
-                );
-            }
-            else{
-                loadToast('User not logged in');
-            }
-        });
-    });
-
 
 
 
 }());
 
-let file = {}
-var chooseFile = (e) => {
-    file = e.target.files[0];
-
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png').put(file).then(function() {
-            loadToast('Success');
-        }).catch(error => {
-            loadToast('error')
-            console.log(error.message)
-        })
-    });
-}
-
-//update profil
-/*
-const uploadAvatar = document.getElementById("avatar-upload");
-uploadAvatar.addEventListener("change", handleFiles, false);
-function handleFiles() {
-    const file = this.files;
-    console.log(file);
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            firebase.storage().ref('users/' + user.uid + '/profile.png').put(file).then(function () {
-                loadToast('Success');
-            }).catch(error => {
-                loadToast('Error');
-                console.log(error.message);
-            })
-        } 
-        else {
-            loadToast('Logg inn for å bytte profilbilde');
-        }
-    });
-}
-*/
 var displaynameInput = document.getElementById('displaynameInput');
 var displaynameButton = document.getElementById('displaynameButton');
 
@@ -169,11 +93,12 @@ displaynameButton.addEventListener('click', e => {
                     displayName: displaynameInput.value,
                 }).then(function() {
                     loadToast('Success');
+                    displaynameInput.value = ''
                 }).catch(function(error) {
                     loadToast('error');
                     console.log(error.message);
                 });
-                //setTimeout(function(){ location.reload(); }, 1000); man må refreshe for å se det nye navnet
+                setTimeout(function(){ location.reload(); }, 4000);
 
             }
         } else {
@@ -182,14 +107,104 @@ displaynameButton.addEventListener('click', e => {
       });
 });
 
+ //upload img
+ var uploader = document.getElementById('uploader');
+ var fileButton = document.getElementById('avatarUpload');
 
-/*
-user.updateProfile({
-                photoURL: fileList,
-            }).then(function() {
-                loadToast('Success');
-            }).catch(function(error) {
-                loadToast('error');
-                console.log(error.message);
-            });
-*/
+ //file selection
+ fileButton.addEventListener('change', e => {
+     firebase.auth().onAuthStateChanged(firebaseUser => {
+         if(firebaseUser){
+             //get file
+             var file = e.target.files[0];
+
+             //create storage
+             var storageRef = firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png');
+
+             //Upload file
+             var task = storageRef.put(file);
+
+             //progress
+             task.on('state_changed',
+             
+                 function progress(snapshot){
+                     var percentage = (snapshot.bytesTransferred /
+                     snapshot.totalBytes) * 100;
+                     uploader.value = percentage;
+                 },
+
+                 function error(err){
+                     loadToast('Feilmelding');
+                     console.log(err.message);
+                 },
+
+                 function complete(){
+                     loadToast('Profilbilde oppdatert');
+                     setTimeout(function(){
+                         location.reload();
+                     }, 3000);
+                 }
+             
+             );
+         }
+         else{
+             loadToast('User not logged in');
+         }
+     });
+ });
+
+//change password
+var newPasswordInput = document.getElementById('newPasswordInput');
+var newPasswordButton = document.getElementById('newPasswordButton');
+var newPasswordCheckBox = document.getElementById('newPasswordCheckBox');
+
+//open checkbox
+newPasswordButton.addEventListener('click', e => {
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if(firebaseUser){
+            if(newPasswordInput.value == ''){
+                loadToast('Skriv inn nytt passord');
+            }
+            else{
+                newPasswordCheckBox.classList.remove('hide');
+            }
+        }
+        else{
+            loadToast('Logg inn for å bytte passord');
+        }
+    });
+});
+
+//check password match
+var newPasswordInputCheck = document.getElementById('newPasswordInputCheck');
+var newPasswordInputCheckTwice = document.getElementById('newPasswordInputCheckTwice');
+var newPasswordButtonCheck = document.getElementById('newPasswordButtonCheck');
+
+newPasswordButtonCheck.addEventListener('click', e => {
+    if(newPasswordInputCheck.value === newPasswordInputCheckTwice.value && newPasswordInputCheck.value === newPasswordInput.value){
+        var user = firebase.auth().currentUser;
+        user.updatePassword(newPasswordInputCheck.value).then(function() {
+            loadToast('Success');
+        }).catch(function(error) {
+            loadToast('Feil:' + error.message);
+            console.log(error.message);
+        });
+        setTimeout(function(){
+            newPasswordInput.value = '';
+            newPasswordInputCheck.value = '';
+            newPasswordInputCheckTwice.value = '';
+            location.reload();
+        }, 3000)
+    }
+    else{
+        loadToast('Skriv inn samme passord');
+    }
+});
+
+var checkPasswordBoxBtnClose = document.getElementById('checkPasswordBoxBtnClose');
+checkPasswordBoxBtnClose.addEventListener('click', e => {
+    newPasswordCheckBox.classList.add('hide');
+    newPasswordInput.value = '';
+    newPasswordInputCheck.value = '';
+    newPasswordInputCheckTwice.value = '';
+})

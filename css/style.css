@@ -8,6 +8,7 @@ body{
 }
 button:focus {outline:0;}
 input:focus {outline:0;}
+input::placeholder{color: #bdbdbd;}
 select:focus {outline:0;}
 i{transition: 250ms;}
 label{float: left;}
@@ -86,6 +87,7 @@ header{
     height: 2vw;
     background-color: black;
     position: sticky;
+    z-index: 10;
     top: 0;
     display: flex;
     justify-content: center;
@@ -173,7 +175,6 @@ header a:hover{
     color: #1565c0;
 }
 .input-primary::placeholder{
-    color: #bdbdbd;
     font-weight: lighter;
     text-transform: capitalize;
 }

@@ -100,9 +100,27 @@
                     <input id="avatarUpload" type="file" value="upload" accept="image/png">
                 </div>
                 <progress value="0" max="100" id="uploader">0%</progress>
+                <p>Fil må være .PNG fil</p>
+                <p id="displayEmail"></p>
                 <div class="change-displayname-container">
                     <input id="displaynameInput" class="input-primary" type="text" placeholder="Displayname">
                     <button id="displaynameButton" class="btn-primary">Update</button>
+                </div>
+                <div class="change-password-container">
+                    <h1>Change password</h1>
+                    <div>
+                        <input id="newPasswordInput" class="input-primary" type="text" placeholder="New password">
+                        <button id="newPasswordButton" class="btn-primary">Update</button>
+                        <div id="newPasswordCheckBox" class="new-password-check-container hide">
+                            <div class="new-password-check-box">
+                                <i id="checkPasswordBoxBtnClose" class="material-icons" style="font-size: 1.5vw;color:black;">close</i>
+                                <h1>Er du sikker?</h1>
+                                <input id="newPasswordInputCheck" class="input-primary" type="text" name="" placeholder="New password">
+                                <input id="newPasswordInputCheckTwice" class="input-primary" type="text" name="" placeholder="New password again">
+                                <button id="newPasswordButtonCheck" class="btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
