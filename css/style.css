@@ -38,18 +38,22 @@ label{float: left;}
 .left-side{
     width: 20vw;
     display: flex;
-    justify-content: left;
+    justify-content: flex-start;
     align-items: center;
 }
 .profile-container{
-    margin-left: 1vw;
-    width: 19vw;
+    margin: 0 0.2vw;
+    max-width: 19vw;
     height: 3vw;
+    padding: 0.3vw 0.3vw;
     border-radius: 0.3vw;
     background-color: black;
     display: flex;
-    justify-content: left;
+    justify-content: flex-start;
     align-items: center;
+}
+.profile-container *{
+    margin: 0 0.2vw;
 }
 .profile-img-container{
     width: 3vw;
@@ -64,8 +68,11 @@ label{float: left;}
 .profile-container img{
     max-width: 100%;
 }
-.profile-container a{
+.profile-container p{
     color: white;
+    text-align: center;
+    max-width: 16vw;
+    overflow: hidden;
 }
 .middle{
     width: 60vw;
@@ -218,9 +225,81 @@ header a:hover{
     background-color: #bdbdbd; 
     border-radius: 0.2vw;
 }
+.chat-container{
+    width: 30vw;
+    height: 20vw;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+}
+.chat-btn-container{
+    width: 3vw;
+    height: 3vw;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    right: 1vw;
+    bottom: 1vw;
+    transition: 250ms;
+}
+.chat-btn-container:hover{
+    background-color: #1565c0;
+}
+.chat-btn-container i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.chat-box{
+    width: 30vw;
+    height: 20vw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-left: 0.1vw solid black;
+    border-top: 0.1vw solid black;
+    border-radius: 0.2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+}
+.chat-box-close-box a{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: auto;
+}
+.chat-box-close-box i:hover{
+    background-color: #bdbdbd; 
+    border-radius: 0.2vw;
+}
+.chat-box-msg-box{
+    width: 27vw;
+    height: 15vw;
+    overflow: scroll;
+}
+.chatMsg{
+    display: flex;
+    justify-content: flex-start;
+}
+.chatMsg p{
+    font-size: 1vw;
+}
+.chat-box-sendmsg-box input{
+    width: 20vw;
+}
+.chat-box-sendmsg-box button{
+    padding: 0.3vw;
+}
+
 .hide{
     display: none;
 }
+
 footer{
     position: relative;
     height: 5vw;

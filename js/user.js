@@ -58,11 +58,9 @@ loginBoxBtnClose.onclick = () => {
             txtEmail.value = '';
             txtPassword.value = '';
             loginBoxWrapper.style.display = 'none';
-            console.log(firebaseUser);
             username.innerHTML = firebaseUser.displayName;
             firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png').getDownloadURL().then(imgURL => {
                 profileIMG.src = imgURL;
-                console.log(imgURL);
             });
             var displayEmail = document.getElementById('displayEmail');
             displayEmail.innerHTML = 'Din Email: ' + firebaseUser.email
@@ -79,32 +77,32 @@ loginBoxBtnClose.onclick = () => {
 
 }());
 
+//change displayname
 var displaynameInput = document.getElementById('displaynameInput');
 var displaynameButton = document.getElementById('displaynameButton');
 
 displaynameButton.addEventListener('click', e => {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            if(displaynameInput.value == ''){
-                loadToast('Skriv inn displayname');
-            }
-            else{
-                user.updateProfile({
-                    displayName: displaynameInput.value,
-                }).then(function() {
-                    loadToast('Success');
-                    displaynameInput.value = ''
-                }).catch(function(error) {
-                    loadToast('error');
-                    console.log(error.message);
-                });
-                setTimeout(function(){ location.reload(); }, 4000);
-
-            }
-        } else {
-            loadToast('Logg inn for å bytte displayname');
+    var firebaseUser = firebase.auth().currentUser;
+    if (firebaseUser) {
+        if(displaynameInput.value == ''){
+            loadToast('Skriv inn displayname');
         }
-      });
+        else{
+            firebaseUser.updateProfile({
+                displayName: displaynameInput.value,
+            }).then(function() {
+                loadToast('Success');
+                displaynameInput.value = ''
+            }).catch(function(error) {
+                loadToast('error');
+                console.log(error.message);
+            });
+            setTimeout(function(){ location.reload(); }, 4000);
+
+        }
+    } else {
+        loadToast('Logg inn for å bytte displayname');
+    }
 });
 
  //upload img
@@ -113,45 +111,44 @@ displaynameButton.addEventListener('click', e => {
 
  //file selection
  fileButton.addEventListener('change', e => {
-     firebase.auth().onAuthStateChanged(firebaseUser => {
-         if(firebaseUser){
-             //get file
-             var file = e.target.files[0];
+    var firebaseUser = firebase.auth().currentUser;
+    if(firebaseUser){
+        //get file
+        var file = e.target.files[0];
 
-             //create storage
-             var storageRef = firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png');
+        //create storage
+        var storageRef = firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png');
 
-             //Upload file
-             var task = storageRef.put(file);
+        //Upload file
+        var task = storageRef.put(file);
 
-             //progress
-             task.on('state_changed',
-             
-                 function progress(snapshot){
-                     var percentage = (snapshot.bytesTransferred /
-                     snapshot.totalBytes) * 100;
-                     uploader.value = percentage;
-                 },
+        //progress
+        task.on('state_changed',
+        
+            function progress(snapshot){
+                var percentage = (snapshot.bytesTransferred /
+                snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+            },
 
-                 function error(err){
-                     loadToast('Feilmelding');
-                     console.log(err.message);
-                 },
+            function error(err){
+                loadToast('Feilmelding');
+                console.log(err.message);
+            },
 
-                 function complete(){
-                     loadToast('Profilbilde oppdatert');
-                     setTimeout(function(){
-                         location.reload();
-                     }, 3000);
-                 }
-             
-             );
-         }
-         else{
-             loadToast('User not logged in');
-         }
-     });
- });
+            function complete(){
+                loadToast('Profilbilde oppdatert');
+                setTimeout(function(){
+                    location.reload();
+                }, 3000);
+            }
+        
+        );
+    }
+    else{
+        loadToast('Logg inn for å bytte bilde');
+    }
+});
 
 //change password
 var newPasswordInput = document.getElementById('newPasswordInput');
@@ -160,19 +157,18 @@ var newPasswordCheckBox = document.getElementById('newPasswordCheckBox');
 
 //open checkbox
 newPasswordButton.addEventListener('click', e => {
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if(firebaseUser){
-            if(newPasswordInput.value == ''){
-                loadToast('Skriv inn nytt passord');
-            }
-            else{
-                newPasswordCheckBox.classList.remove('hide');
-            }
+    var firebaseUser = firebase.auth().currentUser;
+    if(firebaseUser){
+        if(newPasswordInput.value == ''){
+            loadToast('Skriv inn nytt passord');
         }
         else{
-            loadToast('Logg inn for å bytte passord');
+            newPasswordCheckBox.classList.remove('hide');
         }
-    });
+    }
+    else{
+        loadToast('Logg inn for å bytte passord');
+    }
 });
 
 //check password match

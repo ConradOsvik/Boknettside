@@ -12,6 +12,7 @@
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-storage.js"></script>
 
@@ -39,12 +40,12 @@
     <div class="content-wrapper">
         <div class="logo">
             <div class="left-side">
-                <div class="profile-container btn-primary">
+                <a href="profil.html" class="profile-container btn-primary">
                     <div class="profile-img-container">
                         <img id="profileIMG" src="" alt="">
                     </div>
-                    <a id="username" href="#"></a>
-                </div>
+                    <p id="username"></p>
+                </a>
             </div>
             <div class="middle">
                 <a href="index.html">
@@ -103,23 +104,44 @@
                 <p>Fil må være .PNG fil</p>
                 <p id="displayEmail"></p>
                 <div class="change-displayname-container">
-                    <input id="displaynameInput" class="input-primary" type="text" placeholder="Displayname">
+                    <input id="displaynameInput" class="input-primary" type="text" autocomplete="off" placeholder="Displayname">
                     <button id="displaynameButton" class="btn-primary">Update</button>
                 </div>
                 <div class="change-password-container">
                     <h1>Change password</h1>
                     <div>
-                        <input id="newPasswordInput" class="input-primary" type="text" placeholder="New password">
+                        <input id="newPasswordInput" class="input-primary" type="password" placeholder="New password">
                         <button id="newPasswordButton" class="btn-primary">Update</button>
                         <div id="newPasswordCheckBox" class="new-password-check-container hide">
                             <div class="new-password-check-box">
                                 <i id="checkPasswordBoxBtnClose" class="material-icons" style="font-size: 1.5vw;color:black;">close</i>
                                 <h1>Er du sikker?</h1>
-                                <input id="newPasswordInputCheck" class="input-primary" type="text" name="" placeholder="New password">
-                                <input id="newPasswordInputCheckTwice" class="input-primary" type="text" name="" placeholder="New password again">
+                                <input id="newPasswordInputCheck" class="input-primary" type="password" name="" placeholder="New password">
+                                <input id="newPasswordInputCheckTwice" class="input-primary" type="password" name="" placeholder="New password again">
                                 <button id="newPasswordButtonCheck" class="btn-primary">Confirm</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section class="chat-container">
+                <div id="chatBtnBox" class="chat-btn-container">
+                    <a href="#">
+                        <i id="chatBtn" class="material-icons" style="font-size: 2vw; color: white;">chat</i>
+                    </a>
+                </div>
+                <div id="chatBox" class="chat-box hide">
+                    <div class="chat-box-close-box">
+                        <a href="#">
+                            <i id="chatBtnClose" class="material-icons" style="font-size: 1.5vw; color: black;">close</i>
+                        </a>
+                    </div>
+                    <div id="meldingBox" class="chat-box-msg-box">
+                        
+                    </div>
+                    <div class="chat-box-sendmsg-box">
+                        <input id="chatMsgInput" class="input-primary" type="text" placeholder="Din melding">
+                        <button id="chatMsgButton" class="btn-primary">Send melding</button>
                     </div>
                 </div>
             </section>
@@ -127,6 +149,7 @@
     </div>
     <footer></footer>
     <script src="../js/user.js"></script>
+    <script src="../js/chat.js"></script>
     <script src="../js/toast.js"></script>
 </body>
 </html>

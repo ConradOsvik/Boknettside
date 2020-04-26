@@ -39,12 +39,12 @@
     <div class="content-wrapper">
         <div class="logo">
             <div class="left-side">
-                <div class="profile-container btn-primary">
+                <a href="profil.html" class="profile-container btn-primary">
                     <div class="profile-img-container">
                         <img id="profileIMG" src="" alt="">
                     </div>
-                    <a id="username" href="profil.html"></a>
-                </div>
+                    <p id="username"></p>
+                </a>
             </div>
             <div class="middle">
                 <a href="index.html">
@@ -105,11 +105,33 @@
 
             </section>
             <section id="toast"></section>
+            <section class="chat-container">
+                <div id="chatBtnBox" class="chat-btn-container">
+                    <a href="#">
+                        <i id="chatBtn" class="material-icons" style="font-size: 2vw; color: white;">chat</i>
+                    </a>
+                </div>
+                <div id="chatBox" class="chat-box hide">
+                    <div class="chat-box-close-box">
+                        <a href="#">
+                            <i id="chatBtnClose" class="material-icons" style="font-size: 1.5vw; color: black;">close</i>
+                        </a>
+                    </div>
+                    <div id="meldingBox" class="chat-box-msg-box">
+                        
+                    </div>
+                    <div class="chat-box-sendmsg-box">
+                        <input id="chatMsgInput" class="input-primary" type="text" placeholder="Din melding">
+                        <button id="chatMsgButton" class="btn-primary">Send melding</button>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
     <footer></footer>
     <script src="../js/boker.js"></script>
     <script src="../js/user.js"></script>
+    <script src="../js/chat.js"></script>
     <script src="../js/toast.js"></script>
 </body>
 </html>
