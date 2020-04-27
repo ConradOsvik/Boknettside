@@ -68,8 +68,7 @@ chatMsgButton.addEventListener('click', e => {
                 userid: userid,
                 msg: chatMsgInput.value,
                 time: "" + currentHours + ":" + currentMinutes + "",
-                day: day,
-                timems: timems
+                day: day
             });
 
             chatMsgInput.value = '';
@@ -105,4 +104,13 @@ chatColl.onSnapshot(snap => {
         `;
       }
     }
-  });
+});
+
+//scroll bottom on msg load
+/*
+var scrollBottom = () => {
+    var element = document.getElementById('meldingBox');
+    element.scrollTop = element.scrollHeight;
+}
+scrollBottom();
+*/

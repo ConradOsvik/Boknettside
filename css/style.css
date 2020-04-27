@@ -288,6 +288,10 @@ header a:hover{
 }
 .chatMsg p{
     font-size: 1vw;
+    margin-right: 0.2vw;
+}
+.chatMsg p:first-child{
+    color: #bdbdbd;
 }
 .chat-box-sendmsg-box input{
     width: 20vw;
