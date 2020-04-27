@@ -56,13 +56,13 @@ chatMsgButton.addEventListener('click', e => {
 
                 var d = new Date();
                 var weekday = new Array(7);
-                weekday[0] = "Sunday";
-                weekday[1] = "Monday";
-                weekday[2] = "Tuesday";
-                weekday[3] = "Wednesday";
-                weekday[4] = "Thursday";
-                weekday[5] = "Friday";
-                weekday[6] = "Saturday";
+                weekday[0] = "Søndag";
+                weekday[1] = "Mandag";
+                weekday[2] = "Tirsdag";
+                weekday[3] = "Onsdag";
+                weekday[4] = "Torsdag";
+                weekday[5] = "Fredag";
+                weekday[6] = "Lørdag";
 
                 var day = weekday[d.getDay()];
 
