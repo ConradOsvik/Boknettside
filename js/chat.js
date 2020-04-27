@@ -37,6 +37,7 @@ function clock(){
     currentHours = "0" + currentHours;
     }
 }
+
 //send msg
 chatMsgButton.addEventListener('click', e => {
     var user = firebase.auth().currentUser
@@ -49,12 +50,25 @@ chatMsgButton.addEventListener('click', e => {
             
             clock();
 
+            var d = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+            var day = weekday[d.getDay()];
+
             var timemsString = String(new Date().getTime());
 
             chatColl.doc(timemsString).set({
                 userid: userid,
                 msg: chatMsgInput.value,
                 time: "" + currentHours + ":" + currentMinutes + "",
+                day: day,
                 timems: timems
             });
 
@@ -76,7 +90,7 @@ chatColl.onSnapshot(snap => {
             <section class="chatMsg">
 
                 <p id="chatMsgTime">
-                    [${melding.doc.data().time}]
+                    [${melding.doc.data().day}: ${melding.doc.data().time}]
                 </p>
 
                 <p id="chatMsgUser">
