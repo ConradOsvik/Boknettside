@@ -29,6 +29,7 @@ input[type="file"] {
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
+    font-size: 7vw;
 }
 .change-profile-avatar p{
     font-size: 0.75vw;
@@ -107,6 +108,7 @@ input[type="file"] {
     right: 0;
     cursor: pointer;
     margin-top: 0;
+    font-size: 1.5vw;
 }
 #checkPasswordBoxBtnClose:hover{
     background-color: #bdbdbd; 

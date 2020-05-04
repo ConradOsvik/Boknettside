@@ -93,16 +93,16 @@ chatColl.onSnapshot(snap => {
         meldingBox.innerHTML += `
             <section class="chatMsg">
 
-                <p id="chatMsgTime">
-                    [${melding.doc.data().day}: ${melding.doc.data().time}]
-                </p>
-
-                <p id="chatMsgUser">
-                    (${melding.doc.data().userid})
-                </p>
-
-                <p id="chatMsgMsg">
-                    ${melding.doc.data().msg}
+                <p>
+                    <span>
+                        [${melding.doc.data().day}: ${melding.doc.data().time}]
+                    </span>
+                    <span>
+                        (${melding.doc.data().userid})
+                    </span>
+                    <span>
+                        ${melding.doc.data().msg}
+                    </span>
                 </p>
 
             </section>

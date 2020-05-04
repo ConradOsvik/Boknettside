@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/registrer.css">
     <link rel="stylesheet" href="../css/scroll.css">
+    <link rel="stylesheet" href="../css/loader.css">
     <link rel="stylesheet" href="../css/toast.css">
+    <link rel="stylesheet" href="../css/width.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -36,32 +38,52 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <div class="logo">
-            <div class="left-side">
-                <a href="profil.html" class="profile-container btn-primary">
-                    <div class="profile-img-container">
-                        <img id="profileIMG" src="" alt="">
-                    </div>
-                    <p id="username"></p>
-                </a>
+        <div class="header-section">
+            <div class="sidenav hidenav">
+                <div class="sidenav-content">
+                    <a href="index.html">Hjem</a>
+                    <a href="boker.html">Bøker</a>
+                    <a href="forfattere.html">Forfattere</a>
+                    <a href="registrer.html">Legg til bok/forfatter</a>
+                    <a href="profil.html" class="sidenav-profile-container">
+                        <div class="profile-img-container">
+                            <img id="profileIMG" src="" alt="">
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="middle">
-                <a href="index.html">
-                    <img src="../bilder/logo.png" alt="">
-                    <h1>Books</h1>
-                </a>
+            <div class="burger-container" onclick="burgerChange(this)">
+                <div class="bar1 white"></div>
+                <div class="bar2 white"></div>
+                <div class="bar3 white"></div>
             </div>
-            <div class="right-side">
-                <button id="btnLogout" class="btn-primary login-button hide">Log out</button>
-                <button id="loginBoxBtn" class="btn-primary login-button">Log in/Sign up</button>
+            <div class="logo">
+                <div class="left-side">
+                    <a href="profil.html" class="profile-container btn-primary">
+                        <div class="profile-img-container">
+                            <img id="profileIMG" src="" alt="">
+                        </div>
+                        <p id="username"></p>
+                    </a>
+                </div>
+                <div class="middle">
+                    <a href="index.html">
+                        <img src="../bilder/logo.png" alt="">
+                        <h1>Books</h1>
+                    </a>
+                </div>
+                <div class="right-side">
+                    <button id="btnLogout" class="btn-primary login-button hide">Log out</button>
+                    <button id="loginBoxBtn" class="btn-primary login-button">Log in/Sign up</button>
+                </div>
             </div>
+            <header>
+                <a href="index.html">Hjem</a>
+                <a href="boker.html">Bøker</a>
+                <a href="forfattere.html">Forfattere</a>
+                <a class="active" href="registrer.html">Legg til bok/forfatter</a>
+            </header>
         </div>
-        <header>
-            <a href="index.html">Hjem</a>
-            <a href="boker.html">Bøker</a>
-            <a href="forfattere.html">Forfattere</a>
-            <a class="active" href="registrer.html">Legg til bok/forfatter</a>
-        </header>
         <main>
             <section id="loginBoxWrapper" class="login-wrapper">
                 <div class="login-content-container">
@@ -133,20 +155,20 @@
             <section class="chat-container">
                 <div id="chatBtnBox" class="chat-btn-container">
                     <a href="#">
-                        <i id="chatBtn" class="material-icons" style="font-size: 2vw; color: white;">chat</i>
+                        <i id="chatBtn" class="material-icons" style="color: white;">chat</i>
                     </a>
                 </div>
                 <div id="chatBox" class="chat-box hide">
                     <div class="chat-box-close-box">
                         <a href="#">
-                            <i id="chatBtnClose" class="material-icons" style="font-size: 1.5vw; color: black;">close</i>
+                            <i id="chatBtnClose" class="material-icons" style="color: black;">close</i>
                         </a>
                     </div>
                     <div id="meldingBox" class="chat-box-msg-box">
                         
                     </div>
                     <div class="chat-box-sendmsg-box">
-                        <input id="chatMsgInput" class="input-primary" type="text" placeholder="Din melding">
+                        <input id="chatMsgInput" class="input-primary" type="text" autocomplete="off" placeholder="Din melding">
                         <button id="chatMsgButton" class="btn-primary">Send melding</button>
                     </div>
                 </div>
@@ -158,5 +180,6 @@
     <script src="../js/user.js"></script>
     <script src="../js/chat.js"></script>
     <script src="../js/toast.js"></script>
+    <script src="../js/nav.js"></script>
 </body>
 </html>
