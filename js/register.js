@@ -9,6 +9,7 @@ var bokNavn = document.querySelector('#bokNavn');
 var bokUtgivelsesar = document.querySelector('#bokUtgivelsesar');
 var bokForfatter = document.querySelector('#bokForfatter');
 var bokBeskrivelse = document.querySelector('#bokBeskrivelse');
+var bokPris = document.querySelector('#bokPris');
 var bokBilde = document.querySelector('#bokBilde');
 
 var forfatterNavn = document.querySelector('#forfatterNavn');
@@ -87,6 +88,7 @@ var sendBok = (event) => {
                     bokColl.doc(bnLowercase).update({
                         forfatter: bfLowercase,
                         ua: Number(bokUtgivelsesar.value),
+                        pris: Number(bokPris.value),
                         navn: bnLowercase,
                         beskrivelse: bbeLowercase,
                         bilde: bbLowercase
@@ -105,6 +107,7 @@ var sendBok = (event) => {
                 bokColl.doc(bnLowercase).set({
                     forfatter: bfLowercase,
                     ua: Number(bokUtgivelsesar.value),
+                    pris: Number(bokPris.value),
                     navn: bnLowercase,
                     beskrivelse: bbeLowercase,
                     bilde: bbLowercase

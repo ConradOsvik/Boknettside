@@ -52,10 +52,10 @@ var skrivResultatBoker = (snapshot) => {
 var lagHTMLBoker = (id, info) => {
     displayDB.innerHTML += `
         <a href="boker.html?id=${id}" class="displaycontent">
-        <img src="${info["bilde"]}" alt="Bilde av ${info.navn}">
-        <h1>${info["navn"]}</h1>
-        <p>Forfatter: ${info["forfatter"]}</p>
-        <p>Utgivelsesår: ${info["ua"]}</p>
+            <img src="${info["bilde"]}" alt="Bilde av ${info.navn}">
+            <h1>${info["navn"]}</h1>
+            <p>Forfatter: ${info["forfatter"]}</p>
+            <p>Utgivelsesår: ${info["ua"]}</p>                      
         </a>
     `;
 }
@@ -75,10 +75,14 @@ var lagHTML = (info) => {
                 <img src=${info.bilde} alt="Bilde av ${info.navn}">
                 <p>Forfatter: ${info["forfatter"]}</p>
                 <p>Utgivelsesår: ${info["ua"]}</p>
+                <p>Pris: ${info["pris"]}</p>
                 <section class="content-underside-beskrivelse">
                 <h1>Beskrivelse av boken</h1>
                 <p>${info["beskrivelse"]}</p>
                 </section>
+                <a href="#" id="addBookBtn" onclick="addBookShoppingCart('${info.navn}', '${info.bilde}', '${info.pris}')">
+                    <i class="material-icons">add_circle</i>                
+                </a>
             </section>
         `;
 }

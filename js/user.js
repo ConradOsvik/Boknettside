@@ -49,6 +49,7 @@ loginBoxBtnClose.onclick = () => {
     });
 
     var profileIMG = document.getElementById('profileIMG');
+    var profileIMGSidenav = document.getElementById('profileIMGSidenav');
     var username = document.getElementById('username');
 
     //auth listener
@@ -61,6 +62,7 @@ loginBoxBtnClose.onclick = () => {
             username.innerHTML = firebaseUser.displayName;
             firebase.storage().ref('users/' + firebaseUser.uid + '/profile.png').getDownloadURL().then(imgURL => {
                 profileIMG.src = imgURL;
+                profileIMGSidenav.src = imgURL;
             });
             var displayEmail = document.getElementById('displayEmail');
             displayEmail.innerHTML = 'Din Email: ' + firebaseUser.email

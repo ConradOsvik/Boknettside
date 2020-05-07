@@ -80,3 +80,11 @@
 .content-underside-beskrivelse p::first-letter{
     text-transform: capitalize;
 }
+.content-underside i{
+    font-size: 3vw;
+    color: black;
+    transition: 250ms ease-in-out;
+}
+.content-underside i:hover{
+    color: #4caf50;
+}

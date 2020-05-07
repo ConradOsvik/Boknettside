@@ -100,6 +100,69 @@ label{float: left;}
     justify-content: flex-end;
     align-items: center;
 }
+.shoppingcart-dropdown{
+    position: relative;
+    display: inline-block;
+    transition: 250ms;
+}
+.shoppingcart-dropdown a{
+    margin: 0 0.5vw;
+    width: auto;
+    padding: 1vw;
+}
+.shoppingcart-dropdown a i{
+    color: black;
+}
+.shoppingcart-dropdown:hover .dropdown-content{
+    display: block;
+}
+.shoppingcart-dropdown:hover{
+    background-color: #bdbdbd;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    width: 15vw;
+    padding: 1vw;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 1vw 0.1vw black;
+}
+.dropdown-content h2{
+    text-align: center;
+    padding: 0.2vw;
+    border-bottom: 0.1vw solid black;
+}
+.shoppingcart-list{
+    margin-top: 1vw;
+    max-height: 30vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.shoppingcart-item{
+    display: flex;
+    align-items: center;
+}
+.shoppingcart-item img, .shoppingcart-item h3, .shoppingcart-item p{
+    padding: 0.5vw;
+}
+.shoppingcart-item p{
+    font-weight: 300;
+}
+.dropdown-content a{
+    margin: auto;
+    width: 0;
+    padding: 1vw;
+}
+.dropdown-content i{
+    font-size: 3vw;
+    transition: 250ms;
+}
+.dropdown-content i:hover{
+    color: #f44336 ;
+}
 .login-button{
     padding: 0.5vw 0.5vw;
     margin: 0 0.2vw;

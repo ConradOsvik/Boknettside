@@ -49,7 +49,7 @@
                     <a href="registrer.html">Legg til bok/forfatter</a>
                     <a href="profil.html" class="sidenav-profile-container">
                         <div class="profile-img-container">
-                            <img id="profileIMG" src="" alt="">
+                            <img id="profileIMGSidenav" src="" alt="">
                         </div>
                     </a>
                 </div>
@@ -75,6 +75,20 @@
                     </a>
                 </div>
                 <div class="right-side">
+                    <div class="shoppingcart-dropdown">
+                        <a href="#">
+                            <i class="material-icons">card_travel</i>
+                        </a>
+                        <div class="dropdown-content">
+                            <h2>Handlekurv</h2>
+                            <div id="displayShoppingcart" class="shoppingcart-list">
+
+                            </div>
+                            <a href="#" onclick="deleteBookShoppingCart()">
+                                <i class="material-icons">cancel</i>
+                            </a>
+                        </div>
+                    </div>
                     <button id="btnLogout" class="btn-primary login-button hide">Log out</button>
                     <button id="loginBoxBtn" class="btn-primary login-button">Log in/Sign up</button>
                 </div>
@@ -140,8 +154,8 @@
     </div>
     <footer></footer>
     <script src="../js/user.js"></script>
-    <script src="../js/chat.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/toast.js"></script>
-    <script src="../js/nav.js"></script>
+    <script src="../js/shoppingcart.js"></script>
 </body>
 </html>

@@ -11,6 +11,21 @@ var chatColl = db.collection('chat');
 
 var meldingBox = document.getElementById('meldingBox');
 
+//nav x change
+function burgerChange(x) {
+    x.classList.toggle("change");
+    var sidenav = document.querySelector('.sidenav');
+    sidenav.classList.toggle('hidenav');
+
+    var bar1 = document.querySelector('.bar1');
+    var bar2 = document.querySelector('.bar2');
+    var bar3 = document.querySelector('.bar3');
+
+    bar1.classList.toggle('white');
+    bar2.classList.toggle('white');
+    bar3.classList.toggle('white');
+}
+
 chatBtn.addEventListener('click', e => {
     e.preventDefault();
     chatBox.classList.remove('hide');
@@ -22,7 +37,26 @@ chatBtnClose.addEventListener('click', e => {
     chatBtnBox.classList.remove('hide');
     chatMsgInput.value = '';
 });
-
+var chatOpen = false;
+//website wide keycheck
+document.addEventListener('keydown', e => {
+    var key = e.key; 
+    if(key === 'Enter'){
+        chatBox.classList.remove('hide');
+        chatBtnBox.classList.add('hide');
+        chatOpen = true;
+    }
+    else if(key === 'Escape'){
+        if(chatOpen){
+            chatBox.classList.add('hide');
+            chatBtnBox.classList.remove('hide');
+            chatOpen = false
+        }
+    }
+    else if(key === 'm' && chatOpen == false){
+        console.log('test');
+    }
+});
 //convert time to dobbledigit
 var currentTime = new Date();
 var currentHours = currentTime.getHours();
@@ -30,20 +64,25 @@ var currentMinutes = currentTime.getMinutes();
 var timems = currentTime.getTime();
 
 function clock(){
+    //convert time to dobbledigit
+    currentTime = new Date();
+    currentHours = currentTime.getHours();
+    currentMinutes = currentTime.getMinutes();
+    timems = currentTime.getTime();
     if (currentMinutes.toString().length == 1) {
     currentMinutes = "0" + currentMinutes;
     }
     if (currentHours.toString().length == 1) {
     currentHours = "0" + currentHours;
-    }
+    } 
 }
-
 //send msg
 chatMsgButton.addEventListener('click', e => {
     var user = firebase.auth().currentUser
     if(user){
         if(chatMsgInput.value == ''){
             loadToast('Skriv inn melding');
+            console.log(currentHours, currentMinutes);
         }
         else{
             if(user.displayName == null || user.displayName == ''){
@@ -54,7 +93,6 @@ chatMsgButton.addEventListener('click', e => {
             
                 clock();
 
-                var d = new Date();
                 var weekday = new Array(7);
                 weekday[0] = "Søndag";
                 weekday[1] = "Mandag";
@@ -64,7 +102,7 @@ chatMsgButton.addEventListener('click', e => {
                 weekday[5] = "Fredag";
                 weekday[6] = "Lørdag";
 
-                var day = weekday[d.getDay()];
+                var day = weekday[currentTime.getDay()];
 
                 var timemsString = String(new Date().getTime());
 
