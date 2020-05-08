@@ -11,7 +11,7 @@ var addBookShoppingCart = (navn, bilde, pris) => {
         ShoppingCartColl.doc(timemsString).set({
             navn: navn,
             bilde: bilde,
-            pris: pris,
+            pris: Number(pris),
             uid: uid
         });
     }
@@ -33,6 +33,9 @@ var skrivResultatShoppingCart = (snapshot) => {
     snapshot.forEach(snap => lagHTMLShoppingCart(snap.data()));
 }
 
+var totalPrisInput = document.querySelector('#totalPrisInput');
+let totalPris = 0;
+
 var lagHTMLShoppingCart = (info) => {
     displayShoppingcart.innerHTML += `
         <div class="shoppingcart-item">
@@ -43,6 +46,9 @@ var lagHTMLShoppingCart = (info) => {
             </div>
         </div>
     `;
+    totalPris += info.pris
+    console.log(totalPris);
+    totalPrisInput.innerHTML = 'Totalpris: ' + totalPris;
 }
 
 //delete shoppingcart

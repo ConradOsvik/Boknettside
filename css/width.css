@@ -367,6 +367,12 @@
     .content-underside p{
       font-size: 5vw;
     }
+    .content-underside a{
+      text-decoration: none;
+    }
+    .content-underside i{
+      font-size: 8vw;
+    }
 
     /*registrer*/
     .registrerbox{

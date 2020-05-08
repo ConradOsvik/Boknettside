@@ -156,13 +156,21 @@ label{float: left;}
     width: 0;
     padding: 1vw;
 }
+.shoppingcart-totalpris p{
+    font-weight: 300;
+    text-align: center;
+    padding: 0.5vw;
+    border-top: 0.1vw solid black;
+    border-bottom: 0.1vw solid black;
+}
 .dropdown-content i{
     font-size: 3vw;
-    transition: 250ms;
+    transition: 250ms ease-in-out;
 }
 .dropdown-content i:hover{
     color: #f44336 ;
 }
+
 .login-button{
     padding: 0.5vw 0.5vw;
     margin: 0 0.2vw;
