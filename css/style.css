@@ -136,7 +136,7 @@ label{float: left;}
     border-bottom: 0.1vw solid black;
 }
 .shoppingcart-list{
-    margin-top: 1vw;
+    margin: 1vw 0;
     max-height: 30vw;
     overflow-x: hidden;
     overflow-y: scroll;

@@ -22,7 +22,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       var uid = user.uid
       displayShoppingCart(uid)
-    } else {
     }
 });
 var displayShoppingCart = async (uid) => {
@@ -47,7 +46,6 @@ var lagHTMLShoppingCart = (info) => {
         </div>
     `;
     totalPris += info.pris
-    console.log(totalPris);
     totalPrisInput.innerHTML = 'Totalpris: ' + totalPris;
 }
 
